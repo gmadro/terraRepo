@@ -16,6 +16,6 @@ resource "aws_instance" "remote"{
     instance_type = "t2.micro"
 
     tags = {
-        Name = "vMadBro-Build1"
+        Name = var.instance_name
     }
 }
