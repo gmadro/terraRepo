@@ -4,10 +4,10 @@ provider "aws" {
 
 terraform {
     backend "s3" {
-        bucket = "terrapipeline16-terraformstatestore-14b2ipf5nfhta"
+        bucket = "handled-by-pipline"
         key = "terraform.tfstate"
         region = "us-east-1"
-        dynamodb_table = "terrapipeline16-lockdb"
+        dynamodb_table = "handled-by-pipline"
     }
 }
 
