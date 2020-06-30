@@ -22,6 +22,6 @@ phases:
       - echo Run terraform init and apply
       - cd $REV
       - terraform init -backend-config="bucket=$STATE_BUCKET" -backend-config="dynamodb_table=$LOCKDB_TABLE"
-      - terraform apply -var="instance_name=$INSTANCE_NAME"-auto-approve
+      - terraform apply -var="instance_name=$INSTANCE_NAME" -auto-approve
       - echo Run Ansible Playbook
       - ansible-playbook main.yaml --extra-vars "target=$INSTANCE_NAME"
