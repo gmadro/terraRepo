@@ -1,0 +1,20 @@
+
+version: 0.2
+
+env:
+  variables:
+    STATE_BUCKET: "pipeline"
+    LOCKDB_TABLE: "table"
+
+phases:
+  install:
+    commands:
+      - echo Install Terraform
+      - wget https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip
+      - unzip terraform_0.12.26_linux_amd64.zip
+      - mv terraform /usr/local/bin/
+  build:
+    commands:
+      - echo Run terraform init and apply
+      - terraform init -backend-config="bucket=$STATE_BUCKET" -backend-config="dynamodb_table=$LOCKDB_TABLE"
+      - terraform apply -auto-approve
