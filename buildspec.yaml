@@ -5,6 +5,7 @@ env:
   variables:
     STATE_BUCKET: "pipeline"
     LOCKDB_TABLE: "table"
+    INSTANCE_NAME: "name"
 
 phases:
   install:
@@ -19,4 +20,6 @@ phases:
     commands:
       - echo Run terraform init and apply
       - terraform init -backend-config="bucket=$STATE_BUCKET" -backend-config="dynamodb_table=$LOCKDB_TABLE"
-      - terraform apply -auto-approve
+      - terraform apply -var="instance_name=$INSTANCE_NAME"-auto-approve
+      - echo Run Ansible Playbook
+      - ansible-playbook main.yaml --extra-vars "target=$INSTANCE_NAME"
