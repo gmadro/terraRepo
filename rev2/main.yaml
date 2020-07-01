@@ -1,4 +1,4 @@
-hosts: '{{ target }}'
+hosts: "{{ target }}"
 tasks:
 - name: Ensure Docker is installed
   yum:
