@@ -19,3 +19,8 @@ resource "aws_instance" "remote"{
         Name = var.instance_name
     }
 }
+
+output "instance_ip_addr" {
+  value       = aws_instance.remote.private_ip
+  description = "The private IP address of the main server instance."
+}
