@@ -25,4 +25,4 @@ phases:
       - terraform apply -var="instance_name=$INSTANCE_NAME" -auto-approve
       - echo Run Ansible Playbook
       - echo $INSTANCE_NAME >> hosts
-      - ansible-playbook main.yaml -i hosts --extra-vars "target=$INSTANCE_NAME" --list-hosts
+      - ansible-playbook main.yaml -i hosts --extra-vars "target=$INSTANCE_NAME"
