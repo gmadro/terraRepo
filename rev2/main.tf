@@ -12,12 +12,12 @@ terraform {
 }
 
 resource "aws_instance" "remote"{
-    ami = "ami-09d95fab7fff3776c"
+    ami = var_.image_name
     instance_type = "t2.micro"
     key_name = "ACGwork"
 
     tags = {
-        Name = var.instance_name
+        Name = var.image_name
     }
 }
 
