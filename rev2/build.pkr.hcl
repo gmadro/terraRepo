@@ -5,7 +5,7 @@ variable "image_name" {
 }
 
 source "amazon-ebs" "build1" {
-  ami_name = "hardcode-test"
+  ami_name = var.image_name
   region = "us-east-1"
   instance_type = "t2.micro"
   source_ami = "ami-08f3d892de259504d"
