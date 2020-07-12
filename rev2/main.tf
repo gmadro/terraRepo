@@ -65,7 +65,7 @@ resource "aws_instance" "remote"{
     tags = {
         Name = var.image_name
     }
-    vpc_security_group_ids = aws_security_group.allow_http_ssh.id
+    vpc_security_group_ids = [aws_security_group.allow_http_ssh.id]
 }
 
 output "instance_ip_addr" {
