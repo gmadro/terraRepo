@@ -2,6 +2,15 @@ provider "aws" {
   region = "us-east-1"
 }
 
+data "aws_ami" "packer" {
+  owners = ["self"]
+
+  filter {
+    name = 'name'
+    values = var.image_name
+  }
+}
+
 terraform {
     backend "s3" {
         bucket = "handled-by-pipline"
@@ -12,7 +21,7 @@ terraform {
 }
 
 resource "aws_instance" "remote"{
-    ami = var.image_name
+    ami = data.aws_ami.packer.id
     instance_type = "t2.micro"
     key_name = "ACGwork"
 
