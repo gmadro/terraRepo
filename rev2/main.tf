@@ -6,7 +6,7 @@ data "aws_ami" "packer" {
   owners = ["self"]
 
   filter {
-    name = 'name'
+    name = "name"
     values = var.image_name
   }
 }
