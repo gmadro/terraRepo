@@ -23,5 +23,22 @@ build {
             "sudo yum install -y docker"
         ]
     }
+
+    provisioner "file" {
+        source = "./app/"
+        destination = "/tmp"
+    }
+
+    provisioner "shell" {
+        inline = [
+            "sudo docker build -t /tmp/${var.image_name}-image"
+        ]
+    }
+
+    provisioner "shell" {
+        inline = [
+            "sudo docker run -dit --name ${var.image_name}-app -p 80:80 ${var.image_name}-image"
+        ]
+    }
 }
 
