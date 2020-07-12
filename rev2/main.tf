@@ -60,7 +60,7 @@ resource "aws_security_group" "allow_http_ssh" {
 resource "aws_instance" "remote"{
     ami = data.aws_ami.packer.id
     instance_type = "t2.micro"
-    key_name = "ACGwork"
+    key_name = var.ssh_key
 
     tags = {
         Name = var.image_name

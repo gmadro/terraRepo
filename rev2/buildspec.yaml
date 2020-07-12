@@ -7,6 +7,7 @@ env:
     LOCKDB_TABLE: "table"
     REV: "revision"
     IMAGE_NAME: "name"
+    SSH_KEY: "key_name"
 
 phases:
   install:
@@ -25,4 +26,4 @@ phases:
       - cd $REV
       - packer build -var "image_name=$IMAGE_NAME" build.pkr.hcl
       - terraform init -backend-config="bucket=$STATE_BUCKET" -backend-config="dynamodb_table=$LOCKDB_TABLE"
-      - terraform apply -var="image_name=$IMAGE_NAME" -auto-approve
+      - terraform apply -var="image_name=$IMAGE_NAME" -var="ssh_key=$SSH_KEY" -auto-approve
