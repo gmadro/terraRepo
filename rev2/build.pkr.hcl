@@ -28,17 +28,5 @@ build {
         source = "./app/"
         destination = "/tmp"
     }
-
-    provisioner "shell" {
-        inline = [
-            "sudo docker build -f /tmp/Dockerfile"
-        ]
-    }
-
-    provisioner "shell" {
-        inline = [
-            "sudo docker run -dit --name ${var.image_name}-app -p 80:80 ${var.image_name}-image"
-        ]
-    }
 }
 
