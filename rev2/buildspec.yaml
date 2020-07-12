@@ -23,6 +23,6 @@ phases:
     commands:
       - echo Run terraform init and apply
       - cd $REV
-      - packer build -var 'image_name=$IMAGE_NAME' build.pkr.hcl
+      - packer build -var "image_name=$IMAGE_NAME" build.pkr.hcl
       - terraform init -backend-config="bucket=$STATE_BUCKET" -backend-config="dynamodb_table=$LOCKDB_TABLE"
       - terraform apply -var="image_name=$IMAGE_NAME" -auto-approve
