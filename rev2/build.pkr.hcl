@@ -20,7 +20,7 @@ build {
 
     provisioner "shell" {
         inline = [
-            "yum install -y docker"
+            "sudo yum install -y docker"
         ]
     }
 }
