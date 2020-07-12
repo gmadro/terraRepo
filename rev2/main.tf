@@ -7,7 +7,7 @@ data "aws_ami" "packer" {
 
   filter {
     name = "name"
-    values = var.image_name
+    values = [var.image_name]
   }
 }
 
