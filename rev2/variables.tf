@@ -1,4 +1,4 @@
-variable "instance_name" {
+variable "image_name" {
   type = string
-  description = "Name of instance"
+  description = "Name of image"
 }
