@@ -31,7 +31,7 @@ build {
 
     provisioner "shell" {
         inline = [
-            "sudo docker build -t /tmp/${var.image_name}-image"
+            "sudo docker build -f /tmp/Dockerfile -t ${var.image_name}-image"
         ]
     }
 
