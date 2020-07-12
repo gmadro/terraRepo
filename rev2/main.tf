@@ -27,7 +27,7 @@ terraform {
 resource "aws_security_group" "allow_http_ssh" {
   name = "${var.image_name}-allow_http_ssh"
   description = " Allow HTTP and SSH traffic to this instance from ANYWHERE"
-  vpd_id = aws_vpc.default.id
+  vpc_id = aws_vpc.default.id
 
   ingress {
     description = "Custom HTTP from WORLD"
