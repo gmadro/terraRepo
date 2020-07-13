@@ -31,7 +31,7 @@ build {
 
     provisioner "shell" {
         inline = [
-            "sudo systemctl docker start"
+            "sudo systemctl start docker"
         ]
     }
 
