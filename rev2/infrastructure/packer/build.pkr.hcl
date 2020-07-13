@@ -27,7 +27,7 @@ build {
     }
 
     provisioner "file" {
-        source = "./app/"
+        source = "../../app/"
         destination = "/tmp"
     }
 
