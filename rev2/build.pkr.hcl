@@ -9,6 +9,8 @@ source "amazon-ebs" "build1" {
   region = "us-east-1"
   instance_type = "t2.micro"
   source_ami = "ami-08f3d892de259504d"
+  force_deregister = true
+  force_delete_snapshot = true
 
   ssh_username = "ec2-user"
 }
