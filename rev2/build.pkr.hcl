@@ -30,7 +30,7 @@ build {
     }
 
     provisioner "shell" {
-        incline = [
+        inline = [
             "sudo systemctl docker start"
         ]
     }
