@@ -22,9 +22,10 @@ phases:
       - mv packer /usr/local/bin/
   build:
     commands:
-      - echo Change dir and run Packer to build image
-      - cd $REV
+      - echo Change directory and run Packer to build AMI image
+      - cd $REV/infrastructure/packer
       - packer build -var "image_name=$IMAGE_NAME" build.pkr.hcl
-      - echo Run terraform init and apply to build Infrastructure
+      - echo Change directory and Run terraform init and apply to build Infrastructure
+      - cd ../terraform
       - terraform init -backend-config="bucket=$STATE_BUCKET" -backend-config="dynamodb_table=$LOCKDB_TABLE"
       - terraform apply -var="image_name=$IMAGE_NAME" -var="ssh_key=$SSH_KEY" -auto-approve
