@@ -49,7 +49,7 @@ build {
 
     provisioner "shell" {
         inline = [
-            "sudo docker run -d --name Apache -p 80:80 vmadbro/apache:1.0 --restart unless-stopped"
+            "sudo docker run -d --name Apache --restart unless-stopped -p 80:80 vmadbro/apache:1.0"
         ]
     }
 }
