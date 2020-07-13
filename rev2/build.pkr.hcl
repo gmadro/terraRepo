@@ -28,5 +28,17 @@ build {
         source = "./app/"
         destination = "/tmp"
     }
+
+    provisioner "shell" {
+        incline = [
+            "sudo systemctl docker start"
+        ]
+    }
+
+    provisioner "shell" {
+        inline = [
+            "sudo docker build /tmp"
+        ]
+    }
 }
 
