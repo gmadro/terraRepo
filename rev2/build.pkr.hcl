@@ -37,13 +37,19 @@ build {
 
     provisioner "shell" {
         inline = [
-            "sudo docker build /tmp"
+            "sudo docker build /tmp -t vmadbro/apache:1.0"
         ]
     }
 
     provisioner "shell" {
         inline = [
             "sudo systemctl enable docker"
+        ]
+    }
+
+    provisioner "shell" {
+        inline = [
+            "sudo docker run -d -n-name Apache -p 80:80 vmadbro/apache:1.0"
         ]
     }
 }
