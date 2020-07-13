@@ -31,13 +31,19 @@ build {
 
     provisioner "shell" {
         inline = [
-            "sudo systemctl enable docker"
+            "sudo systemctl start docker"
         ]
     }
 
     provisioner "shell" {
         inline = [
             "sudo docker build /tmp"
+        ]
+    }
+
+    provisioner "shell" {
+        inline = [
+            "sudo systemctl enable docker"
         ]
     }
 }
