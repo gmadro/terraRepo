@@ -49,7 +49,7 @@ build {
 
     provisioner "shell" {
         inline = [
-            "sudo docker run -d -n-name Apache -p 80:80 vmadbro/apache:1.0"
+            "sudo docker run -d --name Apache -p 80:80 vmadbro/apache:1.0"
         ]
     }
 }
