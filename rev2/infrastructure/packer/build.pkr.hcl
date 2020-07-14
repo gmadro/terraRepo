@@ -20,12 +20,6 @@ build {
         "source.amazon-ebs.build1"
     ]
 
-    provisioner "shell" {
-        inline = [
-            "sudo yum install -y docker"
-        ]
-    }
-
     provisioner "file" {
         source = "../../app/"
         destination = "/tmp"
@@ -33,24 +27,10 @@ build {
 
     provisioner "shell" {
         inline = [
+            "sudo yum install -y docker"
             "sudo systemctl start docker"
-        ]
-    }
-
-    provisioner "shell" {
-        inline = [
             "sudo docker build /tmp -t vmadbro/apache:1.0"
-        ]
-    }
-
-    provisioner "shell" {
-        inline = [
             "sudo systemctl enable docker"
-        ]
-    }
-
-    provisioner "shell" {
-        inline = [
             "sudo docker run -d --name Apache --restart unless-stopped -p 80:80 vmadbro/apache:1.0"
         ]
     }
