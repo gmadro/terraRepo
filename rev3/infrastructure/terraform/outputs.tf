@@ -1,3 +1,3 @@
 output "instance" {
-  value = aws_instance.remote.public_dns
+  value = aws_instance.remote.public_ip
 }
