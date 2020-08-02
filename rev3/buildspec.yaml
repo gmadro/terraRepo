@@ -32,4 +32,6 @@ phases:
   post_build:
     commands:
       - echo Check Terraform state for EC2 public DNS name
-      - terraform output instance
+      - CHECKSITE='terraform output instance'
+      - echo ping Docker website
+      - ping $CHECKSITE -c 1
