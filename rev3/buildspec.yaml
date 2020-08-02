@@ -31,4 +31,5 @@ phases:
       - terraform apply -var="image_name=$IMAGE_NAME" -var="ssh_key=$SSH_KEY" -auto-approve
   post_build:
     commands:
+      - echo Check Terraform state for EC2 public DNS name
       - terraform output instance
