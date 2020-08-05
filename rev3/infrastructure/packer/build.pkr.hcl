@@ -25,7 +25,7 @@ build {
         destination = "/tmp"
     }
 
-    provisiner "shell" {
+    provisioner "shell" {
         inline = [
             "sudo yum install -y docker",
             "sudo systemctl start docker",
