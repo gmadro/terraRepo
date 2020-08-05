@@ -28,7 +28,6 @@ phases:
   build:
     commands:
       - echo Change directory and run Packer to build AMI image
-      - cd $REV/infrastructure/packer
       - packer build -var "image_name=$IMAGE_NAME" build.pkr.hcl
       - echo Change directory and Run terraform init and apply to build Infrastructure
       - cd ../terraform
