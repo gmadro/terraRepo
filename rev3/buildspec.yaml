@@ -22,7 +22,8 @@ phases:
       - mv packer /usr/local/bin/
   pre_build:
     commands:
-      - echo Validate Packer file
+      - echo Change directory and Validate Packer file
+      - cd $REV/infrastructure/packer
       - packer validate build.pkr.hcl
   build:
     commands:
