@@ -10,12 +10,6 @@ env:
     SSH_KEY: "key_name"
 
 phases:
-  install:
-    commands:
-      - echo Install Terraform
-      - mv /inf/terraform /usr/local/bin/
-      - echo Install Packer
-      - mv /inf/packer /usr/local/bin/
   pre_build:
     commands:
       - echo Change directory and Validate Packer file
