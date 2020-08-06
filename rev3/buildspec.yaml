@@ -25,6 +25,9 @@ phases:
       - echo Change directory and Validate Packer file
       - cd $REV/infrastructure/packer
       - packer validate build.pkr.hcl
+      - echo Change directory and Validate Terraform
+      - cd ../terraform
+      - terraform validate
   build:
     commands:
       - echo Change directory and run Packer to build AMI image
