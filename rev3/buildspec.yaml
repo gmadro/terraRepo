@@ -25,16 +25,17 @@ phases:
       - echo Change directory and Validate Packer file
       - cd $REV/infrastructure/packer
       - packer validate build.pkr.hcl
-      - echo Change directory and Validate Terraform
+      - echo Change directory, Init, and Validate Terraform
       - cd ../terraform
+      - terraform init -backend-config="bucket=$STATE_BUCKET" -backend-config="dynamodb_table=$LOCKDB_TABLE"
       - terraform validate
   build:
     commands:
       - echo Change directory and run Packer to build AMI image
+      - cd ../packer
       - packer build -var "image_name=$IMAGE_NAME" build.pkr.hcl
-      - echo Change directory and Run terraform init and apply to build Infrastructure
+      - echo Change directory and Apply Terrafrom Infrastructure
       - cd ../terraform
-      - terraform init -backend-config="bucket=$STATE_BUCKET" -backend-config="dynamodb_table=$LOCKDB_TABLE"
       - terraform apply -var="image_name=$IMAGE_NAME" -var="ssh_key=$SSH_KEY" -auto-approve
   post_build:
     commands:
