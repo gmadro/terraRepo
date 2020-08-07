@@ -12,8 +12,6 @@ env:
 phases:
   pre_build:
     commands:
-      - ls
-      - ls /tmp
       - echo Change directory and Validate Packer file
       - cd $REV/infrastructure/packer
       - packer validate build.pkr.hcl
