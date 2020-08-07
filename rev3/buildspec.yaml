@@ -13,7 +13,7 @@ phases:
   pre_build:
     commands:
       - ls
-      - ls ~/inf
+      - ls /usr/local/bin/
       - echo Change directory and Validate Packer file
       - cd $REV/infrastructure/packer
       - packer validate build.pkr.hcl
